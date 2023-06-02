@@ -22,7 +22,7 @@ var BrowserConsole = /** @class */ (function (_super) {
             debug: "debug",
             error: "error",
             info: "info",
-            warn: "warn"
+            warn: "warn",
         };
         if (opts && opts.level && Level.hasOwnProperty(opts.level)) {
             _this.level = opts.level;
@@ -41,7 +41,7 @@ var BrowserConsole = /** @class */ (function (_super) {
             console[mappedMethod](message);
         else {
             // @ts-ignore
-            var args = logEntry[Object.getOwnPropertySymbols(logEntry)[1]];
+            var args = logEntry[Object.getOwnPropertySymbols(logEntry)[0]];
             args = args.length >= 1 ? args[0] : args;
             if (args)
                 console[mappedMethod](message, args);
